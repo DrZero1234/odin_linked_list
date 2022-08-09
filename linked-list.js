@@ -83,16 +83,36 @@ class linkedList {
             let current_index = 0;
 
             do {
-                if (current_node.data.localeCompare(data) === 0) {
+                if (current_node.data === data) {
                     return current_index
-                } else {
-                    current_index++;
-                    current_node = current_node.next
-                } 
+                }
+                current_index++;
+                current_node = current_node.next 
             }
-            while(current_node.next)
+            while(current_index < this.getSize())
         }
         return null
+    }
+
+    toString() {
+        if (this.head) {
+            let current_node = this.head;
+            let listString = ""
+            do {
+                if (current_node != null) {
+                    listString += `( ${current_node.data} ) ->`
+                } else {
+                    listString += "null"
+                }
+                current_node = current_node.next
+            }while (current_node != null)
+            listString += " null"
+            console.log(listString)
+        }
+        else {
+            console.log("null")
+        }
+        
     }
 
     
@@ -125,8 +145,10 @@ console.log(list)
 console.log(list.getSize())
 console.log(list.at(3))
 console.log(list.getTail())
-console.log(list.getTail())
 console.log(list.find("Last"))
-console.log(list.pop())
+console.log(list.find("First"))
+list.toString()
+
+blank_list.toString()
 
 
