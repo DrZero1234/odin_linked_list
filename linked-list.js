@@ -48,16 +48,18 @@ class linkedList {
     }
 
     at(index) {
-        let current_index = 0;
         if (this.head) {
-                    let current_node = this.head;
-        while (current_index < index) {
-            current_node = current_node.next;
-            if (!current_node) {
-                throw new Error("The linked list does not contain that many items.")
+            let current_node = this.head;
+            if (index > this.getSize() -1) {
+                return null
+            } else {
+            let current_index = 0;
+            while (current_index < index) {
+                current_node = current_node.next;
+                current_index++;
             }
-            current_index++;
         }
+
         return current_node
         }
     }
@@ -143,7 +145,10 @@ list.append(last)
 
 console.log(list)
 console.log(list.getSize())
-console.log(list.at(3))
+console.log(`At 3: ${list.at(3).data}`)
+console.log(`At 1: ${list.at(1).data}`)
+console.log(`At 2: ${list.at(2).data}`)
+console.log(`At 0: ${list.at(15)}`)
 console.log(list.getTail())
 console.log(list.find("Last"))
 console.log(list.find("First"))
