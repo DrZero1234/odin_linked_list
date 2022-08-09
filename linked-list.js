@@ -53,9 +53,11 @@ class linkedList {
                     let current_node = this.head;
         while (current_index < index) {
             current_node = current_node.next;
+            /*
             if (!current_node) {
                 throw new Error("The linked list does not contain that many items.")
             }
+            */
             current_index++;
         }
         return current_node
@@ -115,6 +117,27 @@ class linkedList {
         
     }
 
+    insertAt(value, index) {
+        if (index >= this.getSize()) {
+            index = this.getSize() - 1;
+        } else if (index < 0) {
+            throw new Error("The index must be a positive number or 0.")
+        }
+        let previous_node = this.at(index-1);
+        let next_node = this.at(index+1);
+        console.log(`Previous: ${previous_node.data}`);
+        console.log(`Next: ${next_node}`)
+        let new_node = Node(value);
+
+
+    }
+
+
+
+    removeAt(value, index) {
+
+    };
+
     
 }
 
@@ -143,12 +166,12 @@ list.append(last)
 
 console.log(list)
 console.log(list.getSize())
-console.log(list.at(3))
+console.log(list.at(15))
 console.log(list.getTail())
 console.log(list.find("Last"))
 console.log(list.find("First"))
 list.toString()
+list.insertAt("kek",3)
 
-blank_list.toString()
 
 
